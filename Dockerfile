@@ -11,5 +11,7 @@ RUN pecl install xdebug && docker-php-ext-enable xdebug
 ADD https://getcomposer.org/composer-stable.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
+COPY php.ini /usr/local/etc/php/conf.d/app.ini
+
 WORKDIR "/srv"
 CMD ["wait-for-it", "rabbitmq:5672", "--", "supervisord", "-c", "supervisord.conf"]
