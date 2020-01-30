@@ -15,3 +15,6 @@ COPY php.ini /usr/local/etc/php/conf.d/app.ini
 
 WORKDIR "/srv"
 CMD ["wait-for-it", "rabbitmq:5672", "--", "supervisord", "-c", "supervisord.conf"]
+
+# supervisor gui
+EXPOSE 9001
