@@ -16,6 +16,7 @@ COPY php.ini /usr/local/etc/php/conf.d/app.ini
 RUN lighttpd-enable-mod rewrite fastcgi-php
 RUN sed -i 's#/var/www/html#/srv/public#g' /etc/lighttpd/lighttpd.conf
 RUN sed -i 's#/usr/bin/php-cgi#/usr/local/bin/php-cgi#g' /etc/lighttpd/conf-available/15-fastcgi-php.conf
+RUN echo 'url.rewrite-if-not-file = ( "/(.*)$" => "/index.php?$1", )' >> /etc/lighttpd/conf-enabled/10-rewrite.conf
 RUN mkdir /var/run/lighttpd && chown www-data: /var/run/lighttpd
 
 WORKDIR "/srv"
