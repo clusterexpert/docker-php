@@ -1,7 +1,7 @@
 FROM php:7.4-cli-buster
 
 RUN apt-get update \ 
-	&& apt-get install -y supervisor wait-for-it unzip git zlib1g-dev libzip-dev lighttpd \
+	&& apt-get install -y supervisor wait-for-it unzip git zlib1g-dev libzip-dev zip lighttpd \
  	&& apt-get clean
 
 RUN docker-php-ext-install pdo_mysql bcmath zip
