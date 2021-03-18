@@ -3,7 +3,7 @@ FROM php:7.4-cli-buster
 RUN apt-get update \ 
 	&& apt-get install -y unzip git zlib1g-dev libzip-dev lighttpd \
 	&& docker-php-ext-install pdo_mysql bcmath zip \
-	&& pecl install xdebug && docker-php-ext-enable xdebug
+	&& pecl install xdebug && docker-php-ext-enable xdebug \
  	&& apt-get clean
 
 ADD https://getcomposer.org/composer-stable.phar /usr/local/bin/composer
