@@ -1,4 +1,4 @@
-FROM php:7.4-cli-buster
+FROM php:8-cli
 
 RUN apt-get update \ 
 	&& apt-get install -y supervisor wait-for-it unzip git zlib1g-dev libzip-dev zip \
