@@ -20,7 +20,7 @@ RUN echo 'url.rewrite-if-not-file = ( "/\??(.*)$" => "/index.php?$1", )' >> /etc
 RUN mkdir /var/run/lighttpd && chown www-data: /var/run/lighttpd
 
 WORKDIR "/srv"
-CMD ["wait-for-it", "rabbitmq:5672", "--", "supervisord", "-c", "supervisord.conf"]
+CMD ["wait-for-it", "rabbitmq:5672", "--", "supervisord", "-c", "/srv/supervisord.conf"]
 
 # supervisor gui
 EXPOSE 9001
